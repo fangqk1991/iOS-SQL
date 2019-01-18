@@ -17,7 +17,7 @@ FC-SQL is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'FC-SQL'
+pod 'FC-SQL', :git => 'https://github.com/fangqk1991/iOS-SQL.git'
 ```
 
 ## Author
