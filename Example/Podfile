@@ -3,6 +3,7 @@
 platform :ios, '8.0'
 
 target 'FC-SQL_Example' do
-  pod 'FC-Utils', :git => 'https://github.com/fangqk1991/iOS-Utils.git'
-  pod 'FC-SQL', :path => '../'
+    pod 'FC-Utils', :git => 'https://github.com/fangqk1991/iOS-Utils.git'
+    pod 'FC-Utils/Toast', :git => 'https://github.com/fangqk1991/iOS-Utils.git'
+    pod 'FC-SQL', :path => '../'
 end

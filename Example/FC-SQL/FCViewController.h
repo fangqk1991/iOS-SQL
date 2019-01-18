@@ -6,8 +6,8 @@
 //  Copyright (c) 2019 fangqk1991. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
-@interface FCViewController : UIViewController
+@interface FCViewController : UITableViewController
 
 @end
