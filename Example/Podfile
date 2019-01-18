@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'FC-SQL_Example' do
+  pod 'FC-SQL', :path => '../'
+
+  target 'FC-SQL_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
