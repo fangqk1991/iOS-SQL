@@ -21,16 +21,26 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/fangqk1991/FC-SQL'
+  s.homepage         = 'https://github.com/fangqk1991/iOS-SQL'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fangqk1991' => 'me@fangqk.com' }
-  s.source           = { :git => 'https://github.com/fangqk1991/FC-SQL.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/fangqk1991/iOS-SQL.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'FC-SQL/Classes/**/*'
+  s.default_subspec = 'Core'
+
+  s.subspec 'Core' do |core|
+
+
+    core.dependency 'FMDB', '~> 2.7'
+
+    core.source_files = 'FC-SQL/Core/*.{h,m}'
+    core.public_header_files = 'FC-SQL/Core/*.h'
+
+  end
   
   # s.resource_bundles = {
   #   'FC-SQL' => ['FC-SQL/Assets/*.png']
@@ -39,4 +49,5 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit', 'Foundation'
 end

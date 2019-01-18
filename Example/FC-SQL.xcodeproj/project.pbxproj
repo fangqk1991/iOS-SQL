@@ -22,8 +22,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		D140437F8808ED6258836304 /* Pods_FC_SQL_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C902BA7CE90F66433B003EBA /* Pods_FC_SQL_Tests.framework */; };
-		F3F9FA84A32802F1D6BF653A /* Pods_FC_SQL_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C175C2577A6DD2F20AF9A5A /* Pods_FC_SQL_Example.framework */; };
+		BCB89B1CAE79DD9160594D56 /* libPods-FC-SQL_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8724F27062FCE30A1DFB9FE8 /* libPods-FC-SQL_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C175C2577A6DD2F20AF9A5A /* Pods_FC_SQL_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FC_SQL_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54A7B9019750FE54E93D5246 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		56C512BF4EC5B76C3BD0DC5C /* Pods-FC-SQL_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FC-SQL_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FC-SQL_Tests/Pods-FC-SQL_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		386A698C9707BDA7257C99CD /* libPods-FC-SQL_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FC-SQL_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A7B9019750FE54E93D5246 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FC-SQL_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FC-SQL_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,13 +58,12 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8724F27062FCE30A1DFB9FE8 /* libPods-FC-SQL_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FC-SQL_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9AEADA16FD4B73DF2C9C3588 /* FC-SQL.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "FC-SQL.podspec"; path = "../FC-SQL.podspec"; sourceTree = "<group>"; };
+		9AEADA16FD4B73DF2C9C3588 /* FC-SQL.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "FC-SQL.podspec"; path = "../FC-SQL.podspec"; sourceTree = "<group>"; };
 		C6BE150F404D358DA6AE71DA /* Pods-FC-SQL_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FC-SQL_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FC-SQL_Example/Pods-FC-SQL_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C902BA7CE90F66433B003EBA /* Pods_FC_SQL_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FC_SQL_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D88D3C775BDAD644A26E11AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D88D3C775BDAD644A26E11AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E675A56FBF98EAEA4DA4A88C /* Pods-FC-SQL_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FC-SQL_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FC-SQL_Example/Pods-FC-SQL_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F932D56C12CF02043F407200 /* Pods-FC-SQL_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FC-SQL_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FC-SQL_Tests/Pods-FC-SQL_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +74,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				F3F9FA84A32802F1D6BF653A /* Pods_FC_SQL_Example.framework in Frameworks */,
+				BCB89B1CAE79DD9160594D56 /* libPods-FC-SQL_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +85,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				D140437F8808ED6258836304 /* Pods_FC_SQL_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +119,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				4C175C2577A6DD2F20AF9A5A /* Pods_FC_SQL_Example.framework */,
-				C902BA7CE90F66433B003EBA /* Pods_FC_SQL_Tests.framework */,
+				8724F27062FCE30A1DFB9FE8 /* libPods-FC-SQL_Example.a */,
+				386A698C9707BDA7257C99CD /* libPods-FC-SQL_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,8 +186,6 @@
 			children = (
 				C6BE150F404D358DA6AE71DA /* Pods-FC-SQL_Example.debug.xcconfig */,
 				E675A56FBF98EAEA4DA4A88C /* Pods-FC-SQL_Example.release.xcconfig */,
-				56C512BF4EC5B76C3BD0DC5C /* Pods-FC-SQL_Tests.debug.xcconfig */,
-				F932D56C12CF02043F407200 /* Pods-FC-SQL_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -207,7 +201,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				9D4B2B871B6B7713AF302F19 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +215,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "FC-SQL_Tests" */;
 			buildPhases = (
-				99CDC383DE75416E963A2D94 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
@@ -247,6 +239,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = fangqk1991;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = E8ZLTQ6SJH;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -310,42 +305,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99CDC383DE75416E963A2D94 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FC-SQL_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D4B2B871B6B7713AF302F19 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FC-SQL_Example/Pods-FC-SQL_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FC-SQL/FC_SQL.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FC_SQL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FC-SQL_Example/Pods-FC-SQL_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,6 +444,7 @@
 			baseConfigurationReference = C6BE150F404D358DA6AE71DA /* Pods-FC-SQL_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8ZLTQ6SJH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FC-SQL/FC-SQL-Prefix.pch";
 				INFOPLIST_FILE = "FC-SQL/FC-SQL-Info.plist";
@@ -500,6 +460,7 @@
 			baseConfigurationReference = E675A56FBF98EAEA4DA4A88C /* Pods-FC-SQL_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8ZLTQ6SJH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FC-SQL/FC-SQL-Prefix.pch";
 				INFOPLIST_FILE = "FC-SQL/FC-SQL-Info.plist";
@@ -512,7 +473,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56C512BF4EC5B76C3BD0DC5C /* Pods-FC-SQL_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -536,7 +496,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F932D56C12CF02043F407200 /* Pods-FC-SQL_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
