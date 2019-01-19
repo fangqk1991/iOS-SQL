@@ -7,32 +7,22 @@
 //
 
 #import "FCViewController.h"
-#import "FCDatabase.h"
 #import "UIColor+Extensions.h"
-#import "FCDBSearcher.h"
-#import "FCDBAdder.h"
-#import "FCDBModifier.h"
-#import "FCDBRemover.h"
 #import "FCToast.h"
+#import "FCDB.h"
+#import "FCActionView.h"
 
 @interface FCViewController ()
 
 @property (nonatomic, strong) FCDatabase *database;
 @property (nonatomic, strong) NSArray *records;
 
+@property (nonatomic, strong) NSString *sortKey;
+@property (nonatomic, strong) NSString *sortDirection;
+
 @end
 
 @implementation FCViewController
-
-- (instancetype)init
-{
-    if(self = [super init])
-    {
-        _records = @[];
-    }
-    
-    return self;
-}
 
 - (NSString *)dbFile
 {
@@ -46,11 +36,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    _records = @[];
+    _sortKey = @"uid";
+    _sortDirection = @"ASC";
+    
     {
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
         
-        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-        self.navigationItem.rightBarButtonItem = addButton;
+        UIBarButtonItem *playButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onPlay:)];
+        self.navigationItem.rightBarButtonItem = playButton;
     }
     
     _database = [[FCDatabase alloc] initWithDBFile:[self dbFile]];
@@ -63,32 +57,43 @@
     [self reloadRecords];
 }
 
-- (void)insertRecords
-{
-    FCDBSearcher *builder = [[FCDBSearcher alloc] initWithDatabase:_database];
-    [builder setTable:@"random_record"];
-    [builder setColumns:@[@"uid", @"name"]];
-    NSArray *items = [builder queryList];
-    int count = [builder queryCount];
+- (void)onPlay:(id)sender {
     
-    NSLog(@"%@", items);
-    NSLog(@"%@ items", @(count));
-}
-
-- (void)insertNewObject:(id)sender {
-    FCDBAdder *builder = [[FCDBAdder alloc] initWithDatabase:_database];
-    [builder setTable:@"random_record"];
-    [builder insertKey:@"name" value:[NSString stringWithFormat:@"Value: %05d", rand() % 10000]];
-    [builder execute];
-    [self reloadRecords];
+    FCActionView *dialog = [FCActionView dialogWithTitle:@"Choose"];
+    [dialog addAction:@"Insert" handler:^(UIAlertAction *action) {
+        FCDBAdder *adder = [_database fc_adder];
+        [adder setTable:@"random_record"];
+        [adder insertKey:@"name" value:[NSString stringWithFormat:@"V - %05d", rand() % 10000]];
+        [adder execute];
+        [self reloadRecords];
+    }];
+    [dialog addAction:@"Remove uid > 5" handler:^(UIAlertAction *action) {
+        FCDBRemover *remover = [_database fc_remover];
+        [remover setTable:@"random_record"];
+        [remover addSpecialCondition:@"uid > ?", @(5)];
+        [remover execute];
+        [self reloadRecords];
+    }];
+    [dialog addAction:@"ORDER BY uid ASC" handler:^(UIAlertAction *action) {
+        _sortKey = @"uid";
+        _sortDirection = @"ASC";
+        [self reloadRecords];
+    }];
+    [dialog addAction:@"ORDER BY name DESC" handler:^(UIAlertAction *action) {
+        _sortKey = @"name";
+        _sortDirection = @"DESC";
+        [self reloadRecords];
+    }];
+    [dialog showInVC:self];
 }
 
 - (void)reloadRecords
 {
-    FCDBSearcher *builder = [[FCDBSearcher alloc] initWithDatabase:_database];
-    [builder setTable:@"random_record"];
-    [builder setColumns:@[@"uid", @"name"]];
-    _records = [builder queryList];
+    FCDBSearcher *searcher = [_database fc_searcher];
+    [searcher setTable:@"random_record"];
+    [searcher setColumns:@[@"uid", @"name"]];
+    [searcher addOrderRule:_sortKey direction:_sortDirection];
+    _records = [searcher queryList];
     [self.tableView reloadData];
 }
 
@@ -123,12 +128,12 @@
         
         NSDictionary *object = _records[indexPath.row];
         
-        FCDBRemover *builder = [[FCDBRemover alloc] initWithDatabase:_database];
-        [builder setTable:@"random_record"];
-        [builder addConditionKey:@"uid" value:object[@"uid"]];
-        [builder execute];
+        FCDBRemover *remover = [_database fc_remover];
+        [remover setTable:@"random_record"];
+        [remover addConditionKey:@"uid" value:object[@"uid"]];
+        [remover execute];
         
-        [FCToast toastInVC:self message:[NSString stringWithFormat:@"Record removed. [uid: %@]", object[@"uid"]]];
+        [FCToast toastInVC:self message:[NSString stringWithFormat:@"Record removed. [%@: %@]", object[@"uid"], object[@"name"]]];
         [self reloadRecords];
     }
 }
@@ -139,13 +144,13 @@
     
     NSDictionary *object = _records[indexPath.row];
     
-    FCDBModifier *builder = [[FCDBModifier alloc] initWithDatabase:_database];
-    [builder setTable:@"random_record"];
-    [builder updateKey:@"name" value:[NSString stringWithFormat:@"Value: %05d", rand() % 10000]];
-    [builder addConditionKey:@"uid" value:object[@"uid"]];
-    [builder execute];
+    FCDBModifier *modifier = [_database fc_modifier];
+    [modifier setTable:@"random_record"];
+    [modifier updateKey:@"name" value:[NSString stringWithFormat:@"C - %04d", rand() % 10000]];
+    [modifier addConditionKey:@"uid" value:object[@"uid"]];
+    [modifier execute];
     
-    [FCToast toastInVC:self message:[NSString stringWithFormat:@"Value changed. [uid: %@]", object[@"uid"]]];
+    [FCToast toastInVC:self message:[NSString stringWithFormat:@"Value changed. [%@: %@]", object[@"uid"], object[@"name"]]];
     [self reloadRecords];
 }
 
