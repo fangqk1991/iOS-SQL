@@ -16,6 +16,8 @@
 @property (nonatomic) int feedsPerPage;
 @property (nonatomic, strong) NSString *optionStr;
 
+@property (nonatomic, strong) NSMutableArray *orderRules;
+
 @end
 
 @implementation FCDBSearcher
@@ -28,6 +30,7 @@
         _distinct = NO;
         _page = -1;
         _feedsPerPage = 1;
+        _orderRules = [NSMutableArray array];
     }
     
     return self;
@@ -47,6 +50,17 @@
 - (void)addColumn:(NSString *)column
 {
     [_queryColumns addObject:column];
+}
+
+- (void)addOrderRule:(NSString *)sortKey direction:(NSString *)direction
+{
+    direction = [direction uppercaseString];
+    if(![@"DESC" isEqualToString:direction])
+    {
+        direction = @"";
+    }
+    
+    [_orderRules addObject:@{@"sort_key": sortKey, @"sort_direction": direction}];
 }
 
 - (void)setPageInfo:(int)page feedsPerPage:(int)feedsPerPage
@@ -97,6 +111,17 @@
     NSDictionary *data = [self exportQuery];
     NSString *query = data[@"query"];
     NSArray *values = data[@"values"];
+    
+    if(_orderRules.count > 0)
+    {
+        NSMutableArray *orderItems = [[NSMutableArray alloc] init];
+        for(NSDictionary *rule in _orderRules)
+        {
+            [orderItems addObject:[NSString stringWithFormat:@"%@ %@", rule[@"sort_key"], rule[@"sort_direction"]]];
+        }
+        
+        query = [NSString stringWithFormat:@"%@ ORDER BY %@", query, [orderItems componentsJoinedByString:@", "]];
+    }
     
     if(_page >= 0 && _feedsPerPage > 0)
     {

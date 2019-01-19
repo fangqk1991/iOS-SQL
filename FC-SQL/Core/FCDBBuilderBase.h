@@ -18,7 +18,7 @@
 
 - (instancetype)initWithDatabase:(FCDatabase *)database;
 - (void)checkParams:(NSDictionary *)params primaryKey:(NSString *)key;
-- (void)addConditionKey:(NSString *)key value:(NSString *)value;
+- (void)addConditionKey:(NSString *)key value:(id)value;
 - (void)addSpecialCondition:(NSString *)condition, ...;
 - (void)addStmtValues:(NSArray *)values;
 - (NSArray *)conditions;

@@ -41,7 +41,7 @@
     [self addConditionKey:key value:params[key]];
 }
 
-- (void)addConditionKey:(NSString *)key value:(NSString *)value
+- (void)addConditionKey:(NSString *)key value:(id)value
 {
     [_conditionColumns addObject:[NSString stringWithFormat:@"(%@ = ?)", key]];
     [_conditionValues addObject:value];
@@ -58,7 +58,8 @@
     
     for(int i = 0; i < numberOfArgs; ++i)
     {
-        [arguments addObject:va_arg(args, id)];
+        id arg = va_arg(args, id);
+        [arguments addObject:arg];
     }
     
     va_end(args);

@@ -13,6 +13,7 @@
 - (void)markDistinct;
 - (void)setColumns:(NSArray *)columns;
 - (void)addColumn:(NSString *)column;
+- (void)addOrderRule:(NSString *)sortKey direction:(NSString *)direction;
 - (void)setPageInfo:(int)page feedsPerPage:(int)feedsPerPage;
 - (void)setOptionStr:(NSString *)optionStr;
 - (NSDictionary *)exportQuery;
