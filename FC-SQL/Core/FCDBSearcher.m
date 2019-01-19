@@ -60,7 +60,7 @@
     _optionStr = optionStr;
 }
 
-- (NSDictionary *)export
+- (NSDictionary *)exportQuery
 {
     [self checkTableValid];
     
@@ -94,7 +94,7 @@
 
 - (NSArray *)queryList
 {
-    NSDictionary *data = [self export];
+    NSDictionary *data = [self exportQuery];
     NSString *query = data[@"query"];
     NSArray *values = data[@"values"];
     

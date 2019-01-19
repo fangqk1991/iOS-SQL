@@ -15,7 +15,7 @@
 - (void)addColumn:(NSString *)column;
 - (void)setPageInfo:(int)page feedsPerPage:(int)feedsPerPage;
 - (void)setOptionStr:(NSString *)optionStr;
-- (NSDictionary *)export;
+- (NSDictionary *)exportQuery;
 - (NSArray *)queryList;
 - (int)queryCount;
 
